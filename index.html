@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ח.סבן חומרי בניין 1994 בע"מ</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#8B5E3C',secondary:'#4A7043'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Assistant', sans-serif;
+direction: rtl;
+}
+.rubik {
+font-family: 'Rubik', sans-serif;
+}
+.product-card:hover {
+transform: scale(1.05);
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.category-item:hover {
+transform: scale(1.05);
+}
+.calc-card:hover {
+transform: scale(1.05);
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.chat-box {
+transform-origin: bottom;
+transition: all 0.3s ease-in-out;
+}
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.1); }
+100% { transform: scale(1); }
+}
+.pulse {
+animation: pulse 2s infinite;
+}
+@keyframes typing {
+0% { width: 0 }
+100% { width: 100% }
+}
+.typing-animation {
+overflow: hidden;
+white-space: nowrap;
+animation: typing 1.5s steps(30, end);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.message-in {
+background-color: #FFFFFF;
+border-radius: 0 8px 8px 8px;
+}
+.message-out {
+background-color: #DCF8C6;
+border-radius: 8px 0 8px 8px;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center">
+<button id="cart-button" class="relative p-2 mr-2">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-shopping-cart-line ri-lg"></i>
+</div>
+<span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+</button>
+<div class="relative">
+<input type="text" placeholder="חיפוש מוצרים..." class="border border-gray-300 rounded-button py-2 px-4 text-sm w-32 focus:outline-none focus:ring-2 focus:ring-primary">
+<div class="absolute left-2 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
+<i class="ri-search-line"></i>
+</div>
+</div>
+</div>
+<div class="hidden md:flex items-center space-x-6 space-x-reverse">
+<a href="#" class="text-gray-700 hover:text-primary">ראשי 🏠</a>
+<a href="#" class="text-gray-700 hover:text-primary">החזון 🌟</a>
+<a href="#" class="text-gray-700 hover:text-primary">מוצרים 🧱</a>
+<a href="#" class="text-gray-700 hover:text-primary">מחלקת חישובים 🧮</a>
+<a href="#" class="text-gray-700 hover:text-primary">סניפים 📍</a>
+<a href="#" class="text-gray-700 hover:text-primary">המלצות 🌟</a>
+</div>
+<div class="flex items-center">
+<h1 class="font-['Pacifico'] text-xl text-primary">logo</h1>
+</div>
+<button id="mobile-menu-button" class="md:hidden w-8 h-8 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 py-2">
+<div class="container mx-auto px-4">
+<a href="#" class="block py-2 text-gray-700 hover:text-primary">ראשי 🏠</a>
+<a href="#" class="block py-2 text-gray-700 hover:text-primary">החזון 🌟</a>
+<a href="#" class="block py-2 text-gray-700 hover:text-primary">מוצרים 🧱</a>
+<a href="#" class="block py-2 text-gray-700 hover:text-primary">מחלקת חישובים 🧮</a>
+<a href="#" class="block py-2 text-gray-700 hover:text-primary">סניפים 📍</a>
+<a href="#" class="block py-2 text-gray-700 hover:text-primary">המלצות 🌟</a>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-16 pb-20">
+<!-- Hero Banner -->
+<section class="relative h-80 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=construction%2520materials%2520store%2520showroom%2520with%2520building%2520materials%2520displayed%2520professionally%252C%2520clean%2520modern%2520interior%252C%2520high%2520quality%2520professional%2520photography&width=1200&height=600&seq=1&orientation=landscape');">
+<div class="absolute inset-0 bg-black bg-opacity-40"></div>
+<div class="container mx-auto px-4 h-full flex items-center">
+<div class="relative z-10 max-w-xl">
+<h1 class="text-4xl font-bold text-white mb-4">ח.סבן חומרי בניין</h1>
+<p class="text-white text-lg mb-6">המקום המקצועי ביותר לחומרי בניין איכותיים מאז 1994</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-opacity-90 text-white py-3 px-6 !rounded-button font-medium transition duration-300 cursor-pointer">
+לקטלוג המוצרים
+</button>
+<button class="bg-white hover:bg-gray-100 text-primary py-3 px-6 !rounded-button font-medium transition duration-300 cursor-pointer">
+למחשבוני בנייה
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories -->
+<section class="py-10 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-2xl font-bold mb-6 text-center">קטגוריות מובילות</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="category-item bg-gray-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
+<div class="w-16 h-16 mx-auto mb-3 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+<i class="ri-brick-wall-line ri-xl text-primary"></i>
+</div>
+<h3 class="font-medium">חומרי בניין 🧱</h3>
+</div>
+<div class="category-item bg-gray-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
+<div class="w-16 h-16 mx-auto mb-3 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+<i class="ri-lightbulb-line ri-xl text-primary"></i>
+</div>
+<h3 class="font-medium">חשמל ותאורה 💡</h3>
+</div>
+<div class="category-item bg-gray-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
+<div class="w-16 h-16 mx-auto mb-3 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+<i class="ri-plant-line ri-xl text-primary"></i>
+</div>
+<h3 class="font-medium">גינון 🌱</h3>
+</div>
+<div class="category-item bg-gray-50 rounded-lg p-4 text-center transition duration-300 cursor-pointer">
+<div class="w-16 h-16 mx-auto mb-3 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+<i class="ri-drop-line ri-xl text-primary"></i>
+</div>
+<h3 class="font-medium">אינסטלציה 🚰</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-10 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-bold">מוצרים מובילים</h2>
+<a href="#" class="text-primary hover:underline">לכל המוצרים</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-sm transition duration-300">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=white%2520drywall%2520gypsum%2520board%2520sheet%2520for%2520construction%252C%2520professional%2520product%2520photography%2520on%2520white%2520background%252C%2520high%2520quality%2520detail&width=600&height=400&seq=2&orientation=landscape" alt="לוח גבס לבן" class="w-full h-full object-cover">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-medium text-lg">לוח גבס לבן</h3>
+<span class="bg-primary text-white text-xs px-2 py-1 rounded">מבצע</span>
+</div>
+<p class="text-gray-600 text-sm mb-3">לוח גבס לבן לעבודות פנים, 2.44m x 1.22m, עובי 12.5mm</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-lg">₪35.90</span>
+<button class="add-to-cart bg-secondary hover:bg-opacity-90 text-white py-2 px-4 !rounded-button text-sm cursor-pointer">
+הוסף לעגלה
+</button>
+</div>
+</div>
+</div>
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-sm transition duration-300">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=green%2520moisture%2520resistant%2520drywall%2520gypsum%2520board%2520sheet%2520for%2520construction%252C%2520professional%2520product%2520photography%2520on%2520white%2520background%252C%2520high%2520quality%2520detail&width=600&height=400&seq=3&orientation=landscape" alt="לוח גבס ירוק" class="w-full h-full object-cover">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-medium text-lg">לוח גבס ירוק</h3>
+<span class="bg-gray-500 text-white text-xs px-2 py-1 rounded">חדש</span>
+</div>
+<p class="text-gray-600 text-sm mb-3">לוח גבס עמיד ללחות, 2.44m x 1.22m, עובי 12.5mm</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-lg">₪45.00</span>
+<button class="add-to-cart bg-secondary hover:bg-opacity-90 text-white py-2 px-4 !rounded-button text-sm cursor-pointer">
+הוסף לעגלה
+</button>
+</div>
+</div>
+</div>
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-sm transition duration-300">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=concrete%2520building%2520block%252C%2520gray%2520cement%2520block%2520for%2520construction%252C%2520professional%2520product%2520photography%2520on%2520white%2520background%252C%2520high%2520quality%2520detail&width=600&height=400&seq=4&orientation=landscape" alt="בלוק בטון" class="w-full h-full object-cover">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-medium text-lg">בלוק בטון 20x40x40</h3>
+</div>
+<p class="text-gray-600 text-sm mb-3">בלוק בטון סטנדרטי לבנייה, 20cm x 40cm x 40cm</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-lg">₪4.50</span>
+<button class="add-to-cart bg-secondary hover:bg-opacity-90 text-white py-2 px-4 !rounded-button text-sm cursor-pointer">
+הוסף לעגלה
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Calculators -->
+<section class="py-10 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-2xl font-bold mb-2 text-center">מחלקת חישובים</h2>
+<p class="text-gray-600 text-center mb-8">כלים חכמים לחישוב כמויות וחומרים לפרויקט שלך</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="calc-card bg-gray-50 rounded-lg p-6 transition duration-300 cursor-pointer">
+<div class="w-12 h-12 mb-4 flex items-center justify-center rounded-full bg-primary bg-opacity-10">
+<i class="ri-ruler-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-lg font-medium mb-2">חישוב כמות גבס</h3>
+<p class="text-gray-600 text-sm mb-4">חישוב מדויק של כמות לוחות גבס, ניצבים וברגים לפי שטח הקיר</p>
+<button class="bg-primary hover:bg-opacity-90 text-white py-2 px-4 !rounded-button text-sm w-full cursor-pointer">
+חשב עכשיו
+</button>
+</div>
+<div class="calc-card bg-gray-50 rounded-lg p-6 transition duration-300 cursor-pointer">
+<div class="w-12 h-12 mb-4 flex items-center justify-center rounded-full bg-primary bg-opacity-10">
+<i class="ri-paint-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-lg font-medium mb-2">חישוב כמות צבע</h3>
+<p class="text-gray-600 text-sm mb-4">חישוב כמות הצבע הדרושה לפי שטח הקירות ומספר שכבות</p>
+<button class="bg-primary hover:bg-opacity-90 text-white py-2 px-4 !rounded-button text-sm w-full cursor-pointer">
+חשב עכשיו
+</button>
+</div>
+<div class="calc-card bg-gray-50 rounded-lg p-6 transition duration-300 cursor-pointer">
+<div class="w-12 h-12 mb-4 flex items-center justify-center rounded-full bg-primary bg-opacity-10">
+<i class="ri-building-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-lg font-medium mb-2">חישוב בטון למדרגות</h3>
+<p class="text-gray-600 text-sm mb-4">חישוב כמות הבטון הדרושה לבניית מדרגות לפי מידות</p>
+<button class="bg-primary hover:bg-opacity-90 text-white py-2 px-4 !rounded-button text-sm w-full cursor-pointer">
+חשב עכשיו
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Branches -->
+<section class="py-10 bg-gray-50">
+<div class="container mx-auto px-4">
+<h2 class="text-2xl font-bold mb-6 text-center">הסניפים שלנו</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="h-48 overflow-hidden">
+<img src="https://public.readdy.ai/gen_page/map_placeholder_1280x720.png" alt="סניף התלמיד" class="w-full h-full object-cover">
+</div>
+<div class="p-4">
+<h3 class="font-medium text-lg mb-2">סניף התלמיד</h3>
+<p class="text-gray-600 mb-2">רחוב התלמיד 6, הוד השרון</p>
+<div class="flex items-center mb-2">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-time-line text-primary"></i>
+</div>
+<span class="text-sm">א'-ה': 07:00-19:00, ו': 07:00-14:00</span>
+</div>
+<div class="flex items-center mb-4">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<span class="text-sm">09-7401550</span>
+</div>
+<button class="bg-secondary hover:bg-opacity-90 text-white py-2 px-4 !rounded-button text-sm w-full cursor-pointer flex items-center justify-center">
+<i class="ri-navigation-line mr-2"></i> נווט עם Waze
+</button>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="h-48 overflow-hidden">
+<img src="https://public.readdy.ai/gen_page/map_placeholder_1280x720.png" alt="סניף החרש" class="w-full h-full object-cover">
+</div>
+<div class="p-4">
+<h3 class="font-medium text-lg mb-2">סניף החרש</h3>
+<p class="text-gray-600 mb-2">רחוב החרש 10, הוד השרון</p>
+<div class="flex items-center mb-2">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-time-line text-primary"></i>
+</div>
+<span class="text-sm">א'-ה': 07:00-19:00, ו': 07:00-14:00</span>
+</div>
+<div class="flex items-center mb-4">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<span class="text-sm">09-7401551</span>
+</div>
+<button class="bg-secondary hover:bg-opacity-90 text-white py-2 px-4 !rounded-button text-sm w-full cursor-pointer flex items-center justify-center">
+<i class="ri-navigation-line mr-2"></i> נווט עם Waze
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-10 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-2xl font-bold mb-6 text-center">לקוחות ממליצים</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-gray-50 rounded-lg p-6">
+<div class="flex items-center mb-4">
+<div class="text-yellow-400 flex">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-4">"שירות מעולה ומקצועי. קיבלתי ייעוץ מצוין לגבי חומרי הבנייה הנכונים לפרויקט שלי. ממליץ בחום!"</p>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<div>
+<h4 class="font-medium">אבי כהן</h4>
+<p class="text-gray-500 text-sm">קבלן בניין</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-6">
+<div class="flex items-center mb-4">
+<div class="text-yellow-400 flex">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-4">"המחירים הוגנים והמבחר עצום. המחשבונים באתר עזרו לי מאוד לתכנן את הכמויות הנדרשות לשיפוץ הבית."</p>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<div>
+<h4 class="font-medium">מיכל לוי</h4>
+<p class="text-gray-500 text-sm">אדריכלית</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-6">
+<div class="flex items-center mb-4">
+<div class="text-yellow-400 flex">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-4">"אספקה מהירה ואמינה. הזמנתי חומרים לשיפוץ והכל הגיע בזמן ובדיוק כפי שהזמנתי. אשמח להזמין שוב."</p>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
+<i class="ri-user-line text-gray-600"></i>
+</div>
+<div>
+<h4 class="font-medium">יוסי ברקוביץ</h4>
+<p class="text-gray-500 text-sm">בעל בית</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- WhatsApp Chat -->
+<div id="whatsapp-chat-button" class="fixed bottom-20 left-4 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg cursor-pointer pulse">
+<i class="ri-whatsapp-line ri-xl text-white"></i>
+</div>
+<div id="whatsapp-chat" class="fixed bottom-20 left-4 z-50 w-[350px] bg-white rounded-xl shadow-xl hidden">
+<div class="bg-[#128C7E] text-white p-4 rounded-t-xl flex items-center">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-3">
+<i class="ri-customer-service-2-line text-[#128C7E]"></i>
+</div>
+<div class="flex-1">
+<h3 class="font-medium">נציג שירות לקוחות</h3>
+<p class="text-xs">זמין לשירותך</p>
+</div>
+<button id="close-chat" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div class="p-4 h-[300px] overflow-y-auto bg-gray-100" id="chat-messages">
+<div class="message-in p-3 mb-3 max-w-[80%]">
+<p class="typing-animation">שלום! 👋 אני כאן לעזור לך. במה אוכל לסייע?</p>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-3">
+<button class="bg-white p-2 rounded text-sm text-center shadow-sm hover:bg-gray-50 cursor-pointer">מידע על מוצרים</button>
+<button class="bg-white p-2 rounded text-sm text-center shadow-sm hover:bg-gray-50 cursor-pointer">בירור מחירים</button>
+<button class="bg-white p-2 rounded text-sm text-center shadow-sm hover:bg-gray-50 cursor-pointer">מעקב הזמנה</button>
+<button class="bg-white p-2 rounded text-sm text-center shadow-sm hover:bg-gray-50 cursor-pointer">שאלה אחרת</button>
+</div>
+</div>
+<div class="p-3 border-t flex items-center">
+<input type="text" id="chat-input" placeholder="הקלד הודעה..." class="flex-1 border-none outline-none bg-gray-100 rounded-full py-2 px-4 text-sm">
+<button id="send-message" class="w-10 h-10 flex items-center justify-center text-[#128C7E] cursor-pointer">
+<i class="ri-send-plane-fill ri-lg"></i>
+</button>
+</div>
+</div>
+<!-- Shopping Cart -->
+<div id="shopping-cart" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+<div class="absolute top-0 left-0 h-full w-full md:w-[400px] bg-white shadow-xl transform transition-transform duration-300 translate-x-0">
+<div class="p-4 bg-primary text-white flex justify-between items-center">
+<h3 class="text-xl font-medium">עגלת קניות</h3>
+<button id="close-cart" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div id="cart-items" class="p-4 h-[calc(100%-180px)] overflow-y-auto">
+<div class="text-center text-gray-500 py-10">
+<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-gray-100">
+<i class="ri-shopping-cart-line ri-2x text-gray-400"></i>
+</div>
+<p>העגלה שלך ריקה</p>
+</div>
+</div>
+<div class="p-4 border-t">
+<div class="flex justify-between mb-4">
+<span class="font-medium">סה"כ:</span>
+<span id="cart-total" class="font-bold">₪0.00</span>
+</div>
+<a href="https://readdy.ai/home/f749d28e-6344-45ea-8bca-e71a277a2fbb/12ddbfc2-da8f-4f89-8c40-7b991927976e" data-readdy="true">
+<button id="checkout-button" class="bg-secondary hover:bg-opacity-90 text-white py-3 px-4 !rounded-button w-full mb-3 cursor-pointer">
+המשך לתשלום
+</button>
+</a>
+<button id="share-cart" class="bg-[#25D366] hover:bg-opacity-90 text-white py-3 px-4 !rounded-button w-full flex items-center justify-center cursor-pointer">
+<i class="ri-whatsapp-line mr-2"></i> שתף הזמנה בוואטסאפ
+</button>
+</div>
+</div>
+</div>
+<!-- Calculator Modal -->
+<div id="calculator-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+<div class="bg-white rounded-lg w-full max-w-md mx-4 overflow-hidden">
+<div class="p-4 bg-primary text-white flex justify-between items-center">
+<h3 class="text-xl font-medium">חישוב כמות גבס</h3>
+<button id="close-calculator" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div class="p-6">
+<div class="mb-4">
+<label class="block text-gray-700 mb-2">אורך הקיר (מטר)</label>
+<input type="number" id="wall-length" class="w-full border border-gray-300 rounded-button p-2 focus:outline-none focus:ring-2 focus:ring-primary">
+</div>
+<div class="mb-4">
+<label class="block text-gray-700 mb-2">גובה הקיר (מטר)</label>
+<input type="number" id="wall-height" class="w-full border border-gray-300 rounded-button p-2 focus:outline-none focus:ring-2 focus:ring-primary">
+</div>
+<div class="mb-6">
+<label class="block text-gray-700 mb-2">פחת מומלץ (%)</label>
+<select id="waste-percentage" class="w-full border border-gray-300 rounded-button p-2 focus:outline-none focus:ring-2 focus:ring-primary">
+<option value="10">10%</option>
+<option value="15">15%</option>
+<option value="20">20%</option>
+</select>
+</div>
+<button id="calculate-button" class="bg-primary hover:bg-opacity-90 text-white py-3 px-4 !rounded-button w-full mb-4 cursor-pointer">
+חשב כמות
+</button>
+<div id="calculation-result" class="hidden bg-gray-50 p-4 rounded-lg">
+<h4 class="font-medium mb-2">תוצאות החישוב:</h4>
+<div class="grid grid-cols-2 gap-2 text-sm">
+<div>שטח כולל:</div>
+<div id="total-area" class="font-bold">0 מ"ר</div>
+<div>כמות לוחות גבס:</div>
+<div id="boards-count" class="font-bold">0 יחידות</div>
+<div>כמות ניצבים:</div>
+<div id="studs-count" class="font-bold">0 יחידות</div>
+<div>כמות ברגים:</div>
+<div id="screws-count" class="font-bold">0 יחידות</div>
+</div>
+<div class="mt-4 flex justify-between">
+<button id="add-to-cart-calc" class="bg-secondary hover:bg-opacity-90 text-white py-2 px-4 !rounded-button text-sm cursor-pointer">
+הוסף לעגלה
+</button>
+<button id="save-calculation" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 !rounded-button text-sm cursor-pointer">
+שמור חישוב
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Bar -->
+<nav class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 z-40">
+<div class="grid grid-cols-5 h-16">
+<a href="#" class="flex flex-col items-center justify-center text-primary">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-home-line"></i>
+</div>
+<span class="text-xs mt-1">ראשי</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-gray-500">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-store-line"></i>
+</div>
+<span class="text-xs mt-1">קטלוג</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-gray-500">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-calculator-line"></i>
+</div>
+<span class="text-xs mt-1">חישובים</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-gray-500">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-xs mt-1">סניפים</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center text-gray-500">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-user-line"></i>
+</div>
+<span class="text-xs mt-1">חשבון</span>
+</a>
+</div>
+</nav>
+<!-- Scripts -->
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+});
+</script>
+<script id="whatsapp-chat-script">
+document.addEventListener('DOMContentLoaded', function() {
+const chatButton = document.getElementById('whatsapp-chat-button');
+const chatBox = document.getElementById('whatsapp-chat');
+const closeChat = document.getElementById('close-chat');
+const chatInput = document.getElementById('chat-input');
+const sendMessage = document.getElementById('send-message');
+const chatMessages = document.getElementById('chat-messages');
+chatButton.addEventListener('click', function() {
+chatBox.classList.remove('hidden');
+chatButton.classList.add('hidden');
+});
+closeChat.addEventListener('click', function() {
+chatBox.classList.add('hidden');
+chatButton.classList.remove('hidden');
+});
+function sendUserMessage() {
+const message = chatInput.value.trim();
+if (message) {
+const messageElement = document.createElement('div');
+messageElement.className = 'message-out p-3 mb-3 mr-auto max-w-[80%]';
+messageElement.innerHTML = `<p>${message}</p>`;
+chatMessages.appendChild(messageElement);
+chatInput.value = '';
+chatMessages.scrollTop = chatMessages.scrollHeight;
+// Simulate response after 1 second
+setTimeout(function() {
+const responseElement = document.createElement('div');
+responseElement.className = 'message-in p-3 mb-3 max-w-[80%]';
+responseElement.innerHTML = `<p>תודה על פנייתך! נציג יחזור אליך בהקדם.</p>`;
+chatMessages.appendChild(responseElement);
+chatMessages.scrollTop = chatMessages.scrollHeight;
+}, 1000);
+}
+}
+sendMessage.addEventListener('click', sendUserMessage);
+chatInput.addEventListener('keypress', function(e) {
+if (e.key === 'Enter') {
+sendUserMessage();
+}
+});
+// Quick reply buttons
+const quickReplyButtons = chatMessages.querySelectorAll('.grid button');
+quickReplyButtons.forEach(button => {
+button.addEventListener('click', function() {
+const message = this.textContent.trim();
+const messageElement = document.createElement('div');
+messageElement.className = 'message-out p-3 mb-3 mr-auto max-w-[80%]';
+messageElement.innerHTML = `<p>${message}</p>`;
+chatMessages.appendChild(messageElement);
+chatMessages.scrollTop = chatMessages.scrollHeight;
+// Simulate response after 1 second
+setTimeout(function() {
+const responseElement = document.createElement('div');
+responseElement.className = 'message-in p-3 mb-3 max-w-[80%]';
+responseElement.innerHTML = `<p>תודה על פנייתך בנושא "${message}"! נציג יחזור אליך בהקדם.</p>`;
+chatMessages.appendChild(responseElement);
+chatMessages.scrollTop = chatMessages.scrollHeight;
+}, 1000);
+});
+});
+});
+</script>
+<script id="shopping-cart-script">
+document.addEventListener('DOMContentLoaded', function() {
+const cartButton = document.getElementById('cart-button');
+const cartModal = document.getElementById('shopping-cart');
+const closeCart = document.getElementById('close-cart');
+const cartItems = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+const cartCount = document.getElementById('cart-count');
+const checkoutButton = document.getElementById('checkout-button');
+const shareCart = document.getElementById('share-cart');
+let cart = [];
+cartButton.addEventListener('click', function() {
+cartModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+closeCart.addEventListener('click', function() {
+cartModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+function updateCart() {
+if (cart.length === 0) {
+cartItems.innerHTML = `
+<div class="text-center text-gray-500 py-10">
+<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-gray-100">
+<i class="ri-shopping-cart-line ri-2x text-gray-400"></i>
+</div>
+<p>העגלה שלך ריקה</p>
+</div>
+`;
+} else {
+let itemsHTML = '';
+let total = 0;
+cart.forEach((item, index) => {
+const itemTotal = item.price * item.quantity;
+total += itemTotal;
+itemsHTML += `
+<div class="flex items-center py-4 border-b">
+<div class="w-16 h-16 bg-gray-100 rounded flex items-center justify-center mr-3 overflow-hidden">
+<img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+</div>
+<div class="flex-1">
+<h4 class="font-medium">${item.name}</h4>
+<div class="flex items-center mt-1">
+<button class="decrease-quantity w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full cursor-pointer" data-index="${index}">
+<i class="ri-subtract-line"></i>
+</button>
+<span class="mx-3">${item.quantity}</span>
+<button class="increase-quantity w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full cursor-pointer" data-index="${index}">
+<i class="ri-add-line"></i>
+</button>
+</div>
+</div>
+<div class="text-right">
+<div class="font-bold">₪${itemTotal.toFixed(2)}</div>
+<button class="remove-item text-red-500 text-sm mt-1 cursor-pointer" data-index="${index}">הסר</button>
+</div>
+</div>
+`;
+});
+cartItems.innerHTML = itemsHTML;
+cartTotal.textContent = `₪${total.toFixed(2)}`;
+// Add event listeners to the newly created buttons
+document.querySelectorAll('.decrease-quantity').forEach(button => {
+button.addEventListener('click', function() {
+const index = parseInt(this.dataset.index);
+if (cart[index].quantity > 1) {
+cart[index].quantity--;
+updateCart();
+}
+});
+});
+document.querySelectorAll('.increase-quantity').forEach(button => {
+button.addEventListener('click', function() {
+const index = parseInt(this.dataset.index);
+cart[index].quantity++;
+updateCart();
+});
+});
+document.querySelectorAll('.remove-item').forEach(button => {
+button.addEventListener('click', function() {
+const index = parseInt(this.dataset.index);
+cart.splice(index, 1);
+updateCart();
+updateCartCount();
+});
+});
+}
+}
+function updateCartCount() {
+const count = cart.reduce((total, item) => total + item.quantity, 0);
+cartCount.textContent = count;
+if (count === 0) {
+checkoutButton.disabled = true;
+checkoutButton.classList.add('opacity-50');
+shareCart.disabled = true;
+shareCart.classList.add('opacity-50');
+} else {
+checkoutButton.disabled = false;
+checkoutButton.classList.remove('opacity-50');
+shareCart.disabled = false;
+shareCart.classList.remove('opacity-50');
+}
+}
+// Add to cart functionality
+document.querySelectorAll('.add-to-cart').forEach(button => {
+button.addEventListener('click', function() {
+const productCard = this.closest('.product-card');
+const productName = productCard.querySelector('h3').textContent;
+const productPrice = parseFloat(productCard.querySelector('.font-bold').textContent.replace('₪', ''));
+const productImage = productCard.querySelector('img').src;
+// Check if product already in cart
+const existingProductIndex = cart.findIndex(item => item.name === productName);
+if (existingProductIndex !== -1) {
+cart[existingProductIndex].quantity++;
+} else {
+cart.push({
+name: productName,
+price: productPrice,
+quantity: 1,
+image: productImage
+});
+}
+updateCart();
+updateCartCount();
+// Animation effect
+this.classList.add('animate-pulse');
+setTimeout(() => {
+this.classList.remove('animate-pulse');
+}, 1000);
+});
+});
+// Share cart on WhatsApp
+shareCart.addEventListener('click', function() {
+if (cart.length === 0) return;
+let message = 'הזמנה חדשה\n\n';
+message += 'פריטים:\n';
+let total = 0;
+cart.forEach(item => {
+const itemTotal = item.price * item.quantity;
+total += itemTotal;
+message += `${item.name} - ${item.quantity} יח' - ₪${itemTotal.toFixed(2)}\n`;
+});
+message += `\nסה"כ: ₪${total.toFixed(2)}`;
+const whatsappNumber = '972508860896';
+const encodedMessage = encodeURIComponent(message);
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+window.open(whatsappUrl, '_blank');
+});
+// Initialize cart
+updateCart();
+updateCartCount();
+});
+</script>
+<script id="calculator-script">
+document.addEventListener('DOMContentLoaded', function() {
+const calcCards = document.querySelectorAll('.calc-card');
+const calculatorModal = document.getElementById('calculator-modal');
+const closeCalculator = document.getElementById('close-calculator');
+const calculateButton = document.getElementById('calculate-button');
+const calculationResult = document.getElementById('calculation-result');
+const wallLength = document.getElementById('wall-length');
+const wallHeight = document.getElementById('wall-height');
+const wastePercentage = document.getElementById('waste-percentage');
+const totalArea = document.getElementById('total-area');
+const boardsCount = document.getElementById('boards-count');
+const studsCount = document.getElementById('studs-count');
+const screwsCount = document.getElementById('screws-count');
+const addToCartCalc = document.getElementById('add-to-cart-calc');
+const saveCalculation = document.getElementById('save-calculation');
+calcCards.forEach(card => {
+card.addEventListener('click', function() {
+calculatorModal.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+calculationResult.classList.add('hidden');
+// Reset form
+wallLength.value = '';
+wallHeight.value = '';
+wastePercentage.value = '10';
+});
+});
+closeCalculator.addEventListener('click', function() {
+calculatorModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+calculateButton.addEventListener('click', function() {
+const length = parseFloat(wallLength.value);
+const height = parseFloat(wallHeight.value);
+const waste = parseInt(wastePercentage.value) / 100;
+if (isNaN(length) || isNaN(height)) {
+return;
+}
+const area = length * height;
+const areaWithWaste = area * (1 + waste);
+// Standard gypsum board is 2.44m x 1.22m = 2.98 sq.m
+const boardSize = 2.98;
+const boards = Math.ceil(areaWithWaste / boardSize);
+// Studs calculation (typically placed every 40cm)
+const studs = Math.ceil(length / 0.4) + 1;
+// Screws calculation (typically 20 screws per board)
+const screws = boards * 20;
+totalArea.textContent = `${area.toFixed(2)} מ"ר`;
+boardsCount.textContent = `${boards} יחידות`;
+studsCount.textContent = `${studs} יחידות`;
+screwsCount.textContent = `${screws} יחידות`;
+calculationResult.classList.remove('hidden');
+});
+addToCartCalc.addEventListener('click', function() {
+const boards = parseInt(boardsCount.textContent);
+const studs = parseInt(studsCount.textContent);
+const screws = parseInt(screwsCount.textContent);
+if (boards > 0) {
+// Add calculated items to cart
+const cart = [];
+cart.push({
+name: 'לוח גבס לבן',
+price: 35.90,
+quantity: boards,
+image: 'https://readdy.ai/api/search-image?query=white%2520drywall%2520gypsum%2520board%2520sheet%2520for%2520construction%252C%2520professional%2520product%2520photography%2520on%2520white%2520background%252C%2520high%2520quality%2520detail&width=600&height=400&seq=2&orientation=landscape'
+});
+cart.push({
+name: 'ניצב מתכת לגבס',
+price: 12.50,
+quantity: studs,
+image: 'https://readdy.ai/api/search-image?query=metal%2520stud%2520for%2520drywall%2520construction%252C%2520professional%2520product%2520photography%2520on%2520white%2520background%252C%2520high%2520quality%2520detail&width=600&height=400&seq=5&orientation=landscape'
+});
+cart.push({
+name: 'ברגים לגבס (100 יח\')',
+price: 15.00,
+quantity: Math.ceil(screws / 100),
+image: 'https://readdy.ai/api/search-image?query=drywall%2520screws%2520box%2520for%2520construction%252C%2520professional%2520product%2520photography%2520on%2520white%2520background%252C%2520high%2520quality%2520detail&width=600&height=400&seq=6&orientation=landscape'
+});
+// Trigger a custom event to add these items to cart
+const addToCartEvent = new CustomEvent('addCalculatedItemsToCart', { detail: { items: cart } });
+document.dispatchEvent(addToCartEvent);
+calculatorModal.classList.add('hidden');
+document.body.style.overflow = 'auto';
+// Show cart
+document.getElementById('cart-button').click();
+}
+});
+saveCalculation.addEventListener('click', function() {
+// Simulate saving calculation
+const savedMessage = document.createElement('div');
+savedMessage.className = 'mt-4 p-2 bg-green-100 text-green-800 rounded text-center';
+savedMessage.textContent = 'החישוב נשמר בהצלחה!';
+calculationResult.appendChild(savedMessage);
+setTimeout(() => {
+savedMessage.remove();
+}, 3000);
+});
+});
+</script>
+<script id="cart-integration-script">
+document.addEventListener('DOMContentLoaded', function() {
+// Listen for the custom event from calculator
+document.addEventListener('addCalculatedItemsToCart', function(e) {
+const calculatedItems = e.detail.items;
+// Get the current cart
+let cart = [];
+if (window.cart) {
+cart = window.cart;
+}
+// Add calculated items to cart
+calculatedItems.forEach(item => {
+const existingItemIndex = cart.findIndex(cartItem => cartItem.name === item.name);
+if (existingItemIndex !== -1) {
+cart[existingItemIndex].quantity += item.quantity;
+} else {
+cart.push(item);
+}
+});
+// Update the cart
+window.cart = cart;
+// Trigger cart update
+const updateCartEvent = new CustomEvent('updateCart', { detail: { cart: cart } });
+document.dispatchEvent(updateCartEvent);
+});
+});
+</script>
+</body>
+</html>
